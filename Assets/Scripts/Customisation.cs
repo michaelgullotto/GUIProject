@@ -15,15 +15,15 @@ public class Customisation : MonoBehaviour
     public List<Texture2D> clothesTextures = new List<Texture2D>();
     public List<Texture2D> armourTextures = new List<Texture2D>();
 
-    public GameObject leftbuton;
-    public GameObject rightbutton;
+    //public GameObject leftbuton;
+    //public GameObject rightbutton;
 
-    public int skinsave;
-    public int hairsave;
-    public int mouthsave;
-    public int eyesave;
-    public int clothsave;
-    public int armoursave;
+    //public int skinsave;
+    //public int hairsave;
+    //public int mouthsave;
+    //public int eyesave;
+    //public int clothsave;
+    //public int armoursave;
 
     private int[] currentTextureIndex;
     //skinTextures[0] = Skin_0

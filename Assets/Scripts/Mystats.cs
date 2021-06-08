@@ -44,7 +44,7 @@ public class Mystats : MonoBehaviour
     static public int Movespeed;
     static public int stamina;
     static public int staminaregen;
-    static public int currentstamina;
+    static public int currentstamina = 10;
 
     static public int maxMana;
     static public int manaRegen;

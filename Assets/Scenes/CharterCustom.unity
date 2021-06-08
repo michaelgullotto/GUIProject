@@ -12570,8 +12570,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 835cd1ec1001e5e48afe367be0bda24d, type: 3}
   - {fileID: 2800000, guid: 71b2136ac76962d44b4b3a6aabf3accd, type: 3}
   - {fileID: 2800000, guid: e84e116df0c7c7a4a958ef978be68320, type: 3}
-  leftbuton: {fileID: 5241224130806478730, guid: 0c0bba64819065245a12339bbc7914cb, type: 3}
-  rightbutton: {fileID: 0}
   skinsave: 0
   hairsave: 0
   mouthsave: 0

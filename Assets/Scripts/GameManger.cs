@@ -38,15 +38,7 @@ public class GameManger : MonoBehaviour
 
             }
         }
-        if (Mystats.currentstamina < Mystats.stamina)
-        {
-            if (staminafull == false)
-            {
-                staminafull = true;
-                StartCoroutine(staminaregen());
-
-            }
-        }
+    
 
     }
 
@@ -72,14 +64,5 @@ public class GameManger : MonoBehaviour
         }
     }
 
-    private IEnumerator staminaregen()
-    {
-        while (Mystats.currentstamina < Mystats.stamina)
-
-        {
-            Mystats.currentstamina = Mystats.currentstamina + Mystats.staminaregen;
-
-            yield return new WaitForSecondsRealtime(time);
-        }
-    }
+  
 }

@@ -7,6 +7,7 @@ public class Pausemenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject pauseMenuState;
     public GameObject settingsMenu;
+    public GameObject GameGUI;
   
     // update to refere to functions
     void Update()
@@ -29,12 +30,15 @@ public class Pausemenu : MonoBehaviour
         // resume and pause function
         public void Resume ()
         {
+        GameGUI.SetActive(true);
         pauseMenuState.SetActive(false);
             Time.timeScale = 1f;
             GameIsPaused = false;
+         
         }
         public void Pause()
         {
+        GameGUI.SetActive(false);
             pauseMenuState.SetActive(true);
               Time.timeScale = 0f;
             GameIsPaused = true;

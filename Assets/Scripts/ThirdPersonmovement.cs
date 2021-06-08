@@ -11,38 +11,48 @@ public class ThirdPersonmovement : MonoBehaviour
     public float speed = 1f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothvelocity;
+    private void Start()
+    {
+        
+    }
 
-    
     void Update()
     {
         speed = Mystats.Movespeed * sprintspeed;
         if (sprint == true)
         {
             sprintspeed = 2;
+            
         }
         if (sprint == false)
         {
             sprintspeed = 1;
+            
         }
 
 
         if (Mystats.currentstamina > 0)
         {
-            if(Input.GetKeyDown(KeyCode.LeftShift))
+            if(Inputmanger.inputmanger.KeyDown("Sprint"))
             {
                 if (sprint == false)
                 {
                     sprint = true;
+                    StartCoroutine(staminaLose());
+
                 }
                 else if (sprint == true)
                 {
                     sprint = false;
+                    StartCoroutine(staminaregen());
+
                 }
             }
         }
         if (Mystats.currentstamina <= 0)
         {
             sprint = false;
+            StartCoroutine(staminaregen());
         }
 
 
@@ -64,4 +74,28 @@ public class ThirdPersonmovement : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
     }
+
+    IEnumerator staminaregen()
+    {
+        while (sprint == false)
+        {
+            if (Mystats.currentstamina < Mystats.stamina)
+            {
+                Mystats.currentstamina = Mystats.currentstamina + Mystats.staminaregen;
+            }
+            yield return new WaitForSecondsRealtime(1);
+        }
+    }
+
+    IEnumerator staminaLose()
+    {
+        while (sprint == true)
+        {
+            Mystats.currentstamina = Mystats.currentstamina - 1;
+
+            yield return new WaitForSecondsRealtime(1);
+        }
+    }
 }
+
+
