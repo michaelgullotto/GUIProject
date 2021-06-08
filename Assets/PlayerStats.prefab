@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2922856829888574743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2922856829888574745}
+  - component: {fileID: 2922856829888574742}
+  m_Layer: 0
+  m_Name: PlayerStats
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2922856829888574745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922856829888574743}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2922856829888574742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922856829888574743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c57ea79f4856f24781b57fd7937ec1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRaces:
+  - RaceName: Ork
+    SecondaryAbilityName: 
+    AbilityDescription: 
+  - RaceName: 
+    SecondaryAbilityName: 
+    AbilityDescription: 
+  playerProfessions:
+  - ProfessionName: Mage
+    AbilityName: fireball
+    AbilityDescription: shots a ball of fire
+    strength: 4
+    dexterity: 4
+    constitution: 5
+    wisdom: 11
+    intelligence: 11
+    charisma: 20
+  - ProfessionName: Warrior
+    AbilityName: Cyclone
+    AbilityDescription: spins slashing ememys with weapons
+    strength: 11
+    dexterity: 11
+    constitution: 6
+    wisdom: 2
+    intelligence: 2
+    charisma: 11
+  level: 1
+  pointPool: 10
+  strength:
+    defaultStat: 5
+    pooledStat: 0
+  dexterity:
+    defaultStat: 5
+    pooledStat: 0
+  constitution:
+    defaultStat: 5
+    pooledStat: 0
+  wisdom:
+    defaultStat: 5
+    pooledStat: 0
+  intelligence:
+    defaultStat: 5
+    pooledStat: 0
+  charisma:
+    defaultStat: 5
+    pooledStat: 0
+  maxHealth: 10
+  currentHealth: 10
+  healthRegen: 1
+  maxMana: 10
+  currentMana: 10
+  manaRegen: 1
+  movementSpeed: 10
+  sprintSpeed: 10
+  crouchSpeed: 10
+  jump: 10
+  maxStamina: 10
+  currentStamina: 10
+  staminaRegen: 10
