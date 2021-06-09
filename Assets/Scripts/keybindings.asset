@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jump: 32
   interact: 101
-  sprint: 304
+  sprint: 100
   inventory: 105
   classablity: 49
   raceablity: 50

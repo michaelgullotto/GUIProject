@@ -1977,6 +1977,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 41956667}
     m_Modifications:
+    - target: {fileID: 608011266024566195, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608011266292822264, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
+      propertyPath: keybinds
+      value: 
+      objectReference: {fileID: 11400000, guid: c251ecba59f33714ab88d2dc6366b4a4, type: 2}
     - target: {fileID: 608011266292822264, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
       propertyPath: settingspanel
       value: 

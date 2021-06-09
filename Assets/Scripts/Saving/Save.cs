@@ -5,24 +5,24 @@ using UnityEngine;
 [System.Serializable]
 public class Save
 {
-    static public int strength;
-    static public int Dextrerity;
-    static public int constitution;
-    static public int wisdom;
-    static public int intelligence;
-    static public int charisma;
-    static public int poolstrength;
-    static public int poolDextrerity;
-    static public int poolconstitution;
-    static public int poolwisdom;
-    static public int poolintelligence;
-    static public int poolcharisma;
+    public int strength;
+    public int Dextrerity;
+    public int constitution;
+    public int wisdom;
+    public int intelligence;
+    public int charisma;
+    public int poolstrength;
+    public int poolDextrerity;
+    public int poolconstitution;
+    public int poolwisdom;
+    public int poolintelligence;
+    public int poolcharisma;
 
-    static public string race;
-    static public string playerclass;
+    public string race;
+    public string playerclass;
 
-    static public int level;
-    static public int statpool;
+    public int level;
+    public int statpool;
 
 
 

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Customisation : MonoBehaviour
 {
-    public enum BodyParts { Skin, Hair, Mouth, Eyes, Clothes, Armour };
+    public enum BodyParts { Default, Skin, Eyes, Mouth, Hair, Clothes, Armour };
 
     public List<Texture2D> skinTextures = new List<Texture2D>();
     public List<Texture2D> hairTextures = new List<Texture2D>();
@@ -24,6 +24,135 @@ public class Customisation : MonoBehaviour
     //public int eyesave;
     //public int clothsave;
     //public int armoursave;
+    [SerializeField]
+    public int indexskin = 0;
+    [SerializeField]
+    public int indexeyes = 0;
+    [SerializeField]
+    public int indexmouth = 0;
+    [SerializeField]
+    public int indexhair = 0;
+    [SerializeField]
+    public int indexclothes = 0;
+    [SerializeField]
+    public int indexarmour = 0;
+
+    public void SelectSkin(int _val)
+    {
+        if(indexskin + _val < 0)
+        {
+            indexskin = skinTextures.Count - 1; // loop to back of list if index goes beyond 0;
+        }
+        else if (indexskin + _val >= skinTextures.Count)
+        {
+            indexskin = 0;
+        }
+        else
+        {
+            indexskin += _val;
+        }
+
+        Material[] mats = characterRenderer.materials;
+        mats[(int)BodyParts.Skin].mainTexture = skinTextures[indexskin];
+    }
+
+    public void Selecteyes(int _val)
+    {
+        if (indexeyes + _val < 0)
+        {
+            indexeyes = eyesTextures.Count - 1; // loop to back of list if index goes beyond 0;
+        }
+        else if (indexeyes + _val >= eyesTextures.Count)
+        {
+            indexeyes = 0;
+        }
+        else
+        {
+            indexeyes += _val;
+        }
+
+        Material[] mats = characterRenderer.materials;
+        mats[(int)BodyParts.Eyes].mainTexture = eyesTextures[indexeyes];
+    }
+
+    public void SelectMouth(int _val)
+    {
+        if (indexmouth + _val < 0)
+        {
+            indexmouth = mouthTextures.Count - 1; // loop to back of list if index goes beyond 0;
+        }
+        else if (indexmouth + _val >= mouthTextures.Count)
+        {
+            indexmouth = 0;
+        }
+        else
+        {
+            indexmouth += _val;
+        }
+
+        Material[] mats = characterRenderer.materials;
+        mats[(int)BodyParts.Mouth].mainTexture = mouthTextures[indexmouth];
+    }
+    public void SelectHair(int _val)
+    {
+        if (indexhair + _val < 0)
+        {
+            indexhair = hairTextures.Count - 1; // loop to back of list if index goes beyond 0;
+        }
+        else if (indexhair + _val >= hairTextures.Count)
+        {
+            indexhair = 0;
+        }
+        else
+        {
+            indexhair += _val;
+        }
+
+        Material[] mats = characterRenderer.materials;
+        mats[(int)BodyParts.Hair].mainTexture = hairTextures[indexhair];
+    }
+    public void Selectcloths(int _val)
+    {
+        if (indexclothes + _val < 0)
+        {
+            indexclothes = clothesTextures.Count - 1; // loop to back of list if index goes beyond 0;
+        }
+        else if (indexclothes + _val >= clothesTextures.Count)
+        {
+            indexclothes = 0;
+        }
+        else
+        {
+            indexclothes += _val;
+        }
+
+        Material[] mats = characterRenderer.materials;
+        mats[(int)BodyParts.Clothes].mainTexture = clothesTextures[indexclothes];
+    }
+    public void SelectArmour(int _val)
+    {
+        if (indexarmour + _val < 0)
+        {
+            indexarmour = armourTextures.Count - 1; // loop to back of list if index goes beyond 0;
+        }
+        else if (indexarmour + _val >= armourTextures.Count)
+        {
+            indexarmour = 0;
+        }
+        else
+        {
+            indexarmour += _val;
+        }
+
+        Material[] mats = characterRenderer.materials;
+        mats[(int)BodyParts.Armour].mainTexture = armourTextures[indexarmour];
+    }
+
+
+
+
+
+
 
     private int[] currentTextureIndex;
     //skinTextures[0] = Skin_0
@@ -32,20 +161,21 @@ public class Customisation : MonoBehaviour
 
     //Renderer for our character mesh
     public Renderer characterRenderer;
-
+    
     private void Start()
     {
         var parts = Enum.GetValues(typeof(BodyParts));
         currentTextureIndex = new int[parts.Length];
 
         GrabTextures();
-
+        /*
         for(int x = 0; x < parts.Length; x++)
         {
             BodyParts part = (BodyParts)parts.GetValue(x);
             currentTextureIndex[x] = PlayerPrefs.GetInt(part + "texture", 0);
             SetTexture(part, 0);
         }
+        */
     }
 
     void GrabTextures()
@@ -88,7 +218,7 @@ public class Customisation : MonoBehaviour
         }
     }
 
-    void SetTexture(BodyParts bodyPart, int direction)
+/*    void SetTexture(BodyParts bodyPart, int direction)
     {
 
         
@@ -150,37 +280,38 @@ public class Customisation : MonoBehaviour
 
         PlayerPrefs.SetInt(bodyPart + "texture", currentTextureIndex[(int)bodyPart]);
     }
+*/
 
 
     private void OnGUI()
     {
-        CustomiseOnGUI();
+        //CustomiseOnGUI();
         //custom();
         
     }
 
-    private void CustomiseOnGUI()
-    {
-        float currentY = 40;
+    //private void CustomiseOnGUI()
+    //{
+    //    float currentY = 40;
 
         
 
-        GUI.Box(new Rect(10, 10, 110, 210), "Visuals");
+    //    GUI.Box(new Rect(10, 10, 110, 210), "Visuals");
 
-        foreach(BodyParts part in Enum.GetValues(typeof(BodyParts)))
-        {
-            if (GUI.Button(new Rect(20, currentY, 20, 20), "<"))
-            {
-                SetTexture(part, -1);
-            }
-            GUI.Label(new Rect(45, currentY, 60, 20), part.ToString());
-            if (GUI.Button(new Rect(90, currentY, 20, 20), ">"))
-            {
-                SetTexture(part, 1);
-            }
-            currentY += 30;
-        }
-    }
+    //    foreach(BodyParts part in Enum.GetValues(typeof(BodyParts)))
+    //    {
+    //        if (GUI.Button(new Rect(20, currentY, 20, 20), "<"))
+    //        {
+    //            SetTexture(part, -1);
+    //        }
+    //        GUI.Label(new Rect(45, currentY, 60, 20), part.ToString());
+    //        if (GUI.Button(new Rect(90, currentY, 20, 20), ">"))
+    //        {
+    //            SetTexture(part, 1);
+    //        }
+    //        currentY += 30;
+       // }
+    //}
 
     //private void custom()
     //{

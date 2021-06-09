@@ -13,7 +13,7 @@ public class levelloader : MonoBehaviour
 
     private void Start()
     {
-        
+        AsyncLoad(Index);
     }
 
 

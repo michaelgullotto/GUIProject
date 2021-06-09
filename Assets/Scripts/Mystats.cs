@@ -14,6 +14,7 @@ public class Mystats : MonoBehaviour
     public AudioSource warrior;
     public AudioSource statstick;
     public AudioSource nostats;
+    [SerializeField] Customisation customisation;
 
     static public int strength;
     static public int Dextrerity;
@@ -318,6 +319,13 @@ public class Mystats : MonoBehaviour
         bf.Serialize(file, save);
         file.Close();
 
+        PlayerPrefs.SetInt("skinsave", customisation.indexskin);
+        PlayerPrefs.SetInt("hairsave", customisation.indexhair);
+        PlayerPrefs.SetInt("eyessave", customisation.indexeyes);
+        PlayerPrefs.SetInt("mouthsave", customisation.indexmouth);
+        PlayerPrefs.SetInt("clothessave", customisation.indexclothes);
+        PlayerPrefs.SetInt("armoursave", customisation.indexarmour);
+
 
     }
 
@@ -326,24 +334,24 @@ public class Mystats : MonoBehaviour
     {
         Save save = new Save();
         
-        Save.strength =  strength;
-        Save.Dextrerity = Dextrerity;
-        Save.constitution = constitution;
-        Save.wisdom = wisdom;
-        Save.intelligence = intelligence;
-        Save.charisma = charisma;
-        Save.poolstrength = poolstrength;
-        Save.poolDextrerity = poolDextrerity;
-        Save.poolconstitution =poolconstitution;
-        Save.poolwisdom = poolwisdom;
-        Save.poolintelligence = poolintelligence;
-        Save.poolcharisma = poolcharisma;
-
-        Save.race = race;
-        Save.playerclass = playerclass;
-
-        Save.level = level;
-        Save.statpool = statpool;
+        save.strength =  strength;
+        save.Dextrerity = Dextrerity;
+        save.constitution = constitution;
+        save.wisdom = wisdom;
+        save.intelligence = intelligence;
+        save.charisma = charisma;
+        save.poolstrength = poolstrength;
+        save.poolDextrerity = poolDextrerity;
+        save.poolconstitution =poolconstitution;
+        save.poolwisdom = poolwisdom;
+        save.poolintelligence = poolintelligence;
+        save.poolcharisma = poolcharisma;
+        
+        save.race = race;
+        save.playerclass = playerclass;
+        
+        save.level = level;
+        save.statpool = statpool;
 
         return save;
     }
@@ -357,25 +365,44 @@ public class Mystats : MonoBehaviour
             Save save = (Save)bf.Deserialize(file);
             file.Close();
 
-            strength = Save.strength;
-            Dextrerity = Save.Dextrerity;
-            constitution = Save.constitution;
-            wisdom = Save.wisdom;
-            intelligence = Save.intelligence;
-            charisma = Save.charisma;
-            poolstrength = Save.poolstrength;
-            poolDextrerity = Save.poolDextrerity;
-            poolconstitution = Save.poolconstitution;
-            poolwisdom = Save.poolwisdom;
-            poolintelligence = Save.poolintelligence;
-            poolcharisma = Save.poolcharisma;
+            strength =      save.strength;   
+            Dextrerity =    save.Dextrerity;
+            constitution =  save.constitution;
+            wisdom =        save.wisdom;
+            intelligence =  save.intelligence;
+            charisma =      save.charisma;
+            poolstrength =  save.poolstrength;
+            poolDextrerity = save.poolDextrerity;
+            poolconstitution= save.poolconstitution;
+            poolwisdom =        save.poolwisdom;
+            poolintelligence =  save.poolintelligence;
+            poolcharisma = save.poolcharisma;
 
-            race = Save.race;
-            playerclass = Save.playerclass;
+            race = save.race;
+            playerclass = save.playerclass;
 
-            level = Save.level;
-            statpool = Save.statpool;
+            level = save.level;
+            statpool = save.statpool;
         }
+
+        PlayerPrefs.GetInt("skinsave", customisation.indexskin);
+        Material[] mats = customisation.characterRenderer.materials;
+        mats[(int)Customisation.BodyParts.Skin].mainTexture = customisation.skinTextures[customisation.indexskin];
+
+        PlayerPrefs.GetInt("hairsave", customisation.indexhair);
+        mats[(int)Customisation.BodyParts.Hair].mainTexture = customisation.hairTextures[customisation.indexhair];
+       
+        PlayerPrefs.GetInt("eyessave", customisation.indexeyes);
+        mats[(int)Customisation.BodyParts.Eyes].mainTexture = customisation.eyesTextures[customisation.indexeyes];
+       
+        PlayerPrefs.GetInt("mouthsave", customisation.indexmouth);
+        mats[(int)Customisation.BodyParts.Mouth].mainTexture = customisation.mouthTextures[customisation.indexmouth];
+
+        PlayerPrefs.GetInt("clothessave", customisation.indexclothes);
+        mats[(int)Customisation.BodyParts.Clothes].mainTexture = customisation.clothesTextures[customisation.indexclothes];
+
+        PlayerPrefs.GetInt("armoursave", customisation.indexarmour);
+        mats[(int)Customisation.BodyParts.Armour].mainTexture = customisation.armourTextures[customisation.indexarmour];
 
 
         if (race != null)

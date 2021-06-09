@@ -2909,7 +2909,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.17121497, y: 0, z: 0, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121495, y: 0, z: 0, w: 0.9852337}
   m_LocalPosition: {x: 0.38, y: 6.5480003, z: -14.360001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3329,7 +3329,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246871744}
-  m_LocalRotation: {x: 0.17121495, y: 1e-45, z: -0, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121494, y: 1e-45, z: -0, w: 0.9852337}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3593,6 +3593,7 @@ MonoBehaviour:
   warrior: {fileID: 0}
   statstick: {fileID: 0}
   nostats: {fileID: 0}
+  customisation: {fileID: 0}
 --- !u!114 &1463578015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3664,6 +3665,12 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 835cd1ec1001e5e48afe367be0bda24d, type: 3}
   - {fileID: 2800000, guid: 71b2136ac76962d44b4b3a6aabf3accd, type: 3}
   - {fileID: 2800000, guid: e84e116df0c7c7a4a958ef978be68320, type: 3}
+  indexskin: 0
+  indexeyes: 0
+  indexmouth: 0
+  indexhair: 0
+  indexclothes: 0
+  indexarmour: 0
   characterRenderer: {fileID: 3236348134485611632}
 --- !u!114 &1463578017
 MonoBehaviour:
@@ -4218,7 +4225,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854191016}
-  m_LocalRotation: {x: 0.18910751, y: 0.0000000084479606, z: -0.0000000016269286, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: -0.000000008447955, z: 0.0000000016269276, w: 0.9819564}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4673,6 +4680,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1155367089}
     m_Modifications:
     - target: {fileID: 608011266292822264, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
+      propertyPath: keybinds
+      value: 
+      objectReference: {fileID: 11400000, guid: c251ecba59f33714ab88d2dc6366b4a4, type: 2}
+    - target: {fileID: 608011266292822264, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
       propertyPath: settingspanel
       value: 
       objectReference: {fileID: 1791788348}
@@ -4937,7 +4948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767355403887198575}
   m_LocalRotation: {x: -9.878122e-16, y: -1.7763568e-15, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: -0.00062582316, y: 0, z: 0}
+  m_LocalPosition: {x: 0.00238, y: 0.00117, z: 0}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_Children: []
   m_Father: {fileID: 117407765317516461}
@@ -5407,6 +5418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5536442097288483567}
+  - component: {fileID: 5160760605586901078}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -5414,6 +5426,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &5160760605586901078
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5160760605586901077}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 287e5b31621b8e44aaa641f8b2ae9025, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &5171545622608399767
 Transform:
   m_ObjectHideFlags: 0
