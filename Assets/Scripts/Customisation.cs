@@ -54,6 +54,7 @@ public class Customisation : MonoBehaviour
 
         Material[] mats = characterRenderer.materials;
         mats[(int)BodyParts.Skin].mainTexture = skinTextures[indexskin];
+  
     }
 
     public void Selecteyes(int _val)

@@ -62,9 +62,7 @@ public class Mystats : MonoBehaviour
     {
         music.Play();
         levelloader.Index = 2;
-        currentstamina = stamina;
-        currentMana = maxMana;
-        currenthealth = maxhealth;
+       
         
     }
     private void Update()
@@ -312,20 +310,14 @@ public class Mystats : MonoBehaviour
     }
     public void SaveGame()
     {
+        
+        
         Save save = CreateSaveGameObjects();
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
         bf.Serialize(file, save);
         file.Close();
-
-        PlayerPrefs.SetInt("skinsave", customisation.indexskin);
-        PlayerPrefs.SetInt("hairsave", customisation.indexhair);
-        PlayerPrefs.SetInt("eyessave", customisation.indexeyes);
-        PlayerPrefs.SetInt("mouthsave", customisation.indexmouth);
-        PlayerPrefs.SetInt("clothessave", customisation.indexclothes);
-        PlayerPrefs.SetInt("armoursave", customisation.indexarmour);
-
 
     }
 
@@ -352,13 +344,21 @@ public class Mystats : MonoBehaviour
         
         save.level = level;
         save.statpool = statpool;
+        save.saveskin = customisation.indexskin;
+        save.savehair = customisation.indexhair;
+        save.saveeyes = customisation.indexeyes;
+        save.savemouth = customisation.indexmouth;
+        save.saveclothes = customisation.indexclothes;
+        save.savearmour = customisation.indexarmour;
 
         return save;
     }
 
     public void loadGame()
     {
-        if(File.Exists(Application.persistentDataPath + "/gamesave.save"))
+       
+
+        if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
@@ -383,27 +383,32 @@ public class Mystats : MonoBehaviour
 
             level = save.level;
             statpool = save.statpool;
+
+            customisation.indexskin = save.saveskin;
+            Material[] mats = customisation.characterRenderer.materials;
+            mats[(int)Customisation.BodyParts.Skin].mainTexture = customisation.skinTextures[customisation.indexskin];
+
+
+
+            customisation.indexhair = save.savehair;
+            mats[(int)Customisation.BodyParts.Hair].mainTexture = customisation.hairTextures[customisation.indexhair];
+
+            customisation.indexeyes = save.saveeyes;
+            mats[(int)Customisation.BodyParts.Eyes].mainTexture = customisation.eyesTextures[customisation.indexeyes];
+
+            customisation.indexmouth = save.savemouth;
+            mats[(int)Customisation.BodyParts.Mouth].mainTexture = customisation.mouthTextures[customisation.indexmouth];
+
+            customisation.indexclothes = save.saveclothes;
+            mats[(int)Customisation.BodyParts.Clothes].mainTexture = customisation.clothesTextures[customisation.indexclothes];
+
+            customisation.indexarmour = save.savearmour;
+            mats[(int)Customisation.BodyParts.Armour].mainTexture = customisation.armourTextures[customisation.indexarmour];
+
+
         }
 
-        PlayerPrefs.GetInt("skinsave", customisation.indexskin);
-        Material[] mats = customisation.characterRenderer.materials;
-        mats[(int)Customisation.BodyParts.Skin].mainTexture = customisation.skinTextures[customisation.indexskin];
-
-        PlayerPrefs.GetInt("hairsave", customisation.indexhair);
-        mats[(int)Customisation.BodyParts.Hair].mainTexture = customisation.hairTextures[customisation.indexhair];
-       
-        PlayerPrefs.GetInt("eyessave", customisation.indexeyes);
-        mats[(int)Customisation.BodyParts.Eyes].mainTexture = customisation.eyesTextures[customisation.indexeyes];
-       
-        PlayerPrefs.GetInt("mouthsave", customisation.indexmouth);
-        mats[(int)Customisation.BodyParts.Mouth].mainTexture = customisation.mouthTextures[customisation.indexmouth];
-
-        PlayerPrefs.GetInt("clothessave", customisation.indexclothes);
-        mats[(int)Customisation.BodyParts.Clothes].mainTexture = customisation.clothesTextures[customisation.indexclothes];
-
-        PlayerPrefs.GetInt("armoursave", customisation.indexarmour);
-        mats[(int)Customisation.BodyParts.Armour].mainTexture = customisation.armourTextures[customisation.indexarmour];
-
+      
 
         if (race != null)
         {

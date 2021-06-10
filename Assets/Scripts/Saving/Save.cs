@@ -24,6 +24,13 @@ public class Save
     public int level;
     public int statpool;
 
+    public int saveskin;
+    public int savehair;
+    public int savemouth;
+    public int saveeyes;
+    public int saveclothes;
+    public int savearmour;
+
 
 
     //public MystatsData(MystatsData mystatsData)

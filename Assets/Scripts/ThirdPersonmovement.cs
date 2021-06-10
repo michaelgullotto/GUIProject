@@ -11,13 +11,12 @@ public class ThirdPersonmovement : MonoBehaviour
     public float speed = 1f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothvelocity;
-    private void Start()
-    {
-        
-    }
+    
+ 
 
     void Update()
     {
+
         speed = Mystats.Movespeed * sprintspeed;
         if (sprint == true)
         {
@@ -55,6 +54,7 @@ public class ThirdPersonmovement : MonoBehaviour
             StartCoroutine(staminaregen());
         }
 
+      
 
 
 
@@ -66,6 +66,8 @@ public class ThirdPersonmovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
+             
+
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothvelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -73,6 +75,8 @@ public class ThirdPersonmovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+       
+            
     }
 
     IEnumerator staminaregen()

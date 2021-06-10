@@ -1979,7 +1979,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 608011266024566195, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 608011266292822264, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
       propertyPath: keybinds
@@ -1992,6 +1992,10 @@ PrefabInstance:
     - target: {fileID: 608011266292822266, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
       propertyPath: m_Name
       value: keybinds
+      objectReference: {fileID: 0}
+    - target: {fileID: 608011266292822266, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 608011266292822267, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
       propertyPath: m_RootOrder

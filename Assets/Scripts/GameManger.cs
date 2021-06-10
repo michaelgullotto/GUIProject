@@ -8,9 +8,16 @@ public class GameManger : MonoBehaviour
     public bool manafull = false;
     public bool healthfull = false;
     public bool staminafull = false;
+    [SerializeField] Mystats mystats;
     // Start is called before the first frame update
     void Start()
     {
+
+        
+        mystats.loadGame();
+        Mystats.currenthealth = Mystats.maxhealth;
+        Mystats.currentMana = Mystats.maxMana;
+        Mystats.currentstamina = Mystats.stamina;
         levelloader.Index = 3;
         //Mystats loadGame()
 
@@ -51,6 +58,7 @@ public class GameManger : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(time);
         }
+        healthfull = false;
     }
 
     private IEnumerator manaregen()
@@ -62,6 +70,7 @@ public class GameManger : MonoBehaviour
 
             yield return new WaitForSecondsRealtime(time);
         }
+        manafull = false;
     }
 
   
