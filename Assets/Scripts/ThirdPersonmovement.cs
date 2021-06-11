@@ -11,12 +11,45 @@ public class ThirdPersonmovement : MonoBehaviour
     public float speed = 1f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothvelocity;
+    public int manacost = 20;
     
  
 
     void Update()
     {
+        // choses which ablity to cast
+        if (Inputmanger.inputmanger.KeyDown("Raceablity"))
+        {
+            if (Mystats.currentMana > manacost)
+            {
+                if (Mystats.raceAblity == "whimper")
+                {
+                    castWhimper();
+                }
+                else if (Mystats.raceAblity == "Ork Smash")
+                {
+                    castOrksmash();
+                }
+            }
+        }
 
+        if (Inputmanger.inputmanger.KeyDown("Classablity"))
+        {
+            if (Mystats.currentMana > manacost)
+            {
+
+                if (Mystats.classAblity == "cyclone")
+                {
+                    castCyclone();
+                }
+                else if (Mystats.classAblity == "Fire ball")
+                {
+                    castFireBall();
+                }
+            }
+        }
+
+        // sprint toggle on and off
         speed = Mystats.Movespeed * sprintspeed;
         if (sprint == true)
         {
@@ -58,7 +91,7 @@ public class ThirdPersonmovement : MonoBehaviour
 
 
 
-
+        // player direction movement
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -78,7 +111,7 @@ public class ThirdPersonmovement : MonoBehaviour
        
             
     }
-
+    // stam usage and regenration
     IEnumerator staminaregen()
     {
         while (sprint == false)
@@ -100,6 +133,28 @@ public class ThirdPersonmovement : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
         }
     }
+    // casting of ablitys
+    void castFireBall()
+    {
+
+        Mystats.currentMana = Mystats.currentMana - manacost;
+    }
+
+    void castOrksmash()
+    {
+        Mystats.currentMana = Mystats.currentMana - manacost;
+    }
+
+    void castWhimper()
+    {
+        Mystats.currentMana = Mystats.currentMana - manacost;
+    }
+
+    void castCyclone()
+    {
+        Mystats.currentMana = Mystats.currentMana - manacost;
+    }
+
 }
 
 

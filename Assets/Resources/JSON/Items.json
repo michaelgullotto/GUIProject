@@ -1,0 +1,21 @@
+[
+  
+  
+   {
+    "objectSlug": "Axe",
+    "itemName": "Axe",
+    "description": "Chops things.",
+    "itemType": "Weapon",
+    "actionName": "Equip",
+    "itemModifier": 0,
+   },
+
+   {
+    "objectSlug": "Apple",
+    "itemName": "Log Potion",
+    "description": "Nice juicy apple for eating.",
+    "itemType": "Consumable",
+    "actionName": "consume",
+    "itemModifier": 0
+   }
+]
