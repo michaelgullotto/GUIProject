@@ -7,6 +7,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Mystats : MonoBehaviour
 {
+    public GameObject deathpanel;
+    public GameObject player;
+    public GameObject respawnpoint;
     public AudioSource music;
     public AudioSource ork;
     public AudioSource human;
@@ -14,6 +17,7 @@ public class Mystats : MonoBehaviour
     public AudioSource warrior;
     public AudioSource statstick;
     public AudioSource nostats;
+    public AudioSource death;
     [SerializeField] Customisation customisation;
 
     static public int strength;
@@ -91,7 +95,10 @@ public class Mystats : MonoBehaviour
         {
             currentstamina = stamina;
         }
-
+        if (currenthealth <= 0)
+        {
+            Dead();
+        }
 
 
         strength = poolstrength + basestrength + 5;
@@ -436,6 +443,26 @@ public class Mystats : MonoBehaviour
        
 
     }
+    //loads up a panel that player can acess respawn from
+    public void Dead()
+    {
+        Time.timeScale = 0;
+        music.Stop();
+        death.Play();
+        deathpanel.SetActive(true);
+    }
+
+    //respawns player at spawn point and resets health to full
+    public void respawn()
+    {
+        Time.timeScale = 1;
+        death.Stop();
+        music.Play();
+        currenthealth = maxhealth;
+        player.transform.position = respawnpoint.transform.position;
+        deathpanel.SetActive(false);
+    }
+
 
 
 

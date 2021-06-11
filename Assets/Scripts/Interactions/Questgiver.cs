@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Questgiver : Npc
 {
+    public AudioSource arrrr;
     public bool AssignedQuest { get; set;}
     public bool Helped { get; set;}
     [SerializeField]
@@ -44,7 +45,8 @@ public class Questgiver : Npc
         }
         else if(!Quest.Completed)
         {
-            DialogueSystem.instance.AddNewDialogue(new string[] { "You havent talked" , "TO RICK" }, name);
+            DialogueSystem.instance.AddNewDialogue(new string[] { "YOU HAVENT TALKED TO RICK" }, name);
+            arrrr.Play();
             Mystats.currenthealth = Mystats.currenthealth - 69;
         }
     }
