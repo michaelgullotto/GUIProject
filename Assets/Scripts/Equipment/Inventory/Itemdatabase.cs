@@ -7,7 +7,7 @@ public class Itemdatabase : MonoBehaviour
 {
     public static Itemdatabase instance { get; set; }
     private List<Item> Items { get; set; }
-   void Start ()
+   void Awake ()
     {
 
         if (instance != null && instance != this)
@@ -40,7 +40,7 @@ public class Itemdatabase : MonoBehaviour
             }
 
         }
-        Debug.Log("clouldnt find" + itemSlug);
+        Debug.Log("couldnt find" + itemSlug);
         return null;
 
     }

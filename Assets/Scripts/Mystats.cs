@@ -415,8 +415,6 @@ public class Mystats : MonoBehaviour
 
         }
 
-      
-
         if (race != null)
         {
             if (race == "Ork")
@@ -440,7 +438,18 @@ public class Mystats : MonoBehaviour
             }
 
         }
-       
+        maxhealth = strength * 20;
+        healthregen = strength;
+        maxMana = intelligence * 20;
+        manaRegen = intelligence;
+
+        Movespeed = 20 + Dextrerity;
+        stamina = Dextrerity * 3;
+        staminaregen = Dextrerity / 2;
+        currenthealth = maxhealth;
+        currentMana = maxMana;
+        currentstamina = stamina;
+
 
     }
     //loads up a panel that player can acess respawn from

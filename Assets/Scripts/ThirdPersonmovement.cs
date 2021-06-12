@@ -50,7 +50,7 @@ public class ThirdPersonmovement : MonoBehaviour
         }
 
         // sprint toggle on and off
-        speed = Mystats.Movespeed * sprintspeed;
+        speed = Mystats.Movespeed * sprintspeed / 2;
         if (sprint == true)
         {
             sprintspeed = 2;
