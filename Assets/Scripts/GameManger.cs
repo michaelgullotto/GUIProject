@@ -11,17 +11,11 @@ public class GameManger : MonoBehaviour
     [SerializeField] Mystats mystats;
     // Start is called before the first frame update
     
-    void Awake()
-    {
-        mystats.loadGame();
-    }
-    
+  
     void Start()
     {
-
-        Mystats.currenthealth = Mystats.maxhealth;
-        Mystats.currentMana = Mystats.maxMana;
-        Mystats.currentstamina = Mystats.stamina;
+        mystats.loadGame();
+      
         levelloader.Index = 3;
         //Mystats loadGame()
 
