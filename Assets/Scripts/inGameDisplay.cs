@@ -14,9 +14,10 @@ public class inGameDisplay : MonoBehaviour
     public GameObject orksmash;
     public GameObject whimper;
 
-    // Update is called once per frame
+    
     void Update()
     {
+        //updates displays for health mana and stamina that are displayed in sliders
         healthdisplay.value = Mystats.currenthealth;
         manadisplay.value = Mystats.currentMana;
         staminadisplay.value = Mystats.currentstamina;
@@ -24,7 +25,7 @@ public class inGameDisplay : MonoBehaviour
         manadisplay.maxValue = Mystats.maxMana;
         staminadisplay.maxValue = Mystats.stamina;
 
-
+        // displays icines for class and race ablitys
         if (Mystats.raceAblity == "whimper")
         {
             whimper.SetActive(true);

@@ -6,7 +6,7 @@ public class Keybinds : ScriptableObject
 {
 
     public KeyCode jump, interact, sprint, inventory, classablity, raceablity;
-
+    // turns keycodes into strings so they can be referanced
     public KeyCode CheckKey(string key)
     {
         switch(key)

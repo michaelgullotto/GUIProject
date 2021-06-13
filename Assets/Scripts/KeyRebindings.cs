@@ -9,8 +9,9 @@ public class KeyRebindings : MonoBehaviour
     public GameObject keybindingspanel;
     [SerializeField] Keybinds keybinds;
     public GameObject selectpanel;
-    // Start is called before the first frame update
+    
 
+    // lets you rebind keys from play
     public Inputmanger inputManager;
 
     
@@ -71,17 +72,18 @@ public class KeyRebindings : MonoBehaviour
 
     }
 
-
+   // closes blocking panel
     public void closeSelection()
     {
         selectpanel.SetActive(false);
     }
-
+    //toggles back to settings menu
     public void backtosettings()
     {
         keybindingspanel.SetActive(false);
         settingspanel.SetActive(true);
     }
+    //brings up a panel while your selecting to block mulitple rebinds being opened
     public void keybindsOpen()
     {
         keybindingspanel.SetActive(true);

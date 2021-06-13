@@ -9,8 +9,10 @@ public class InventoryUI : MonoBehaviour
     InventoryUIItem itemContainer { get; set;}
     bool menuIsActive { get; set; }
     Item currentSelectedItem { get; set;}
+    
     void Start()
     {
+        // genrates what we need to instaiate things into inventory UI
         itemContainer = Resources.Load<InventoryUIItem>("UI/Item_Container");
         UIEventHandeler.OnItemAddedToInventtroy += ItemAdded;
         InventoryPanel.gameObject.SetActive(false);
@@ -18,13 +20,14 @@ public class InventoryUI : MonoBehaviour
 
     private void Update()
     {
+        // opens and closes inventoy from keydown
         if(Inputmanger.inputmanger.KeyDown("Inventory"))
         {
             menuIsActive = !menuIsActive;
             InventoryPanel.gameObject.SetActive(menuIsActive);
         }
     }
-
+    // instaiates UI into inventory when item is picked up
     public void ItemAdded(Item item)
     {
         InventoryUIItem emptyItem = Instantiate(itemContainer);

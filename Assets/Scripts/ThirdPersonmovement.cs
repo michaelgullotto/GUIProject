@@ -12,8 +12,13 @@ public class ThirdPersonmovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothvelocity;
     public int manacost = 20;
-    
- 
+    public Rigidbody rb;
+
+    private void Start()
+    {
+        
+    }
+
 
     void Update()
     {
@@ -62,7 +67,7 @@ public class ThirdPersonmovement : MonoBehaviour
             
         }
 
-
+        // stops sprtinging if run out of stamina
         if (Mystats.currentstamina > 0)
         {
             if(Inputmanger.inputmanger.KeyDown("Sprint"))
@@ -81,6 +86,7 @@ public class ThirdPersonmovement : MonoBehaviour
                 }
             }
         }
+        // starts stamina regen coroution
         if (Mystats.currentstamina <= 0)
         {
             sprint = false;
@@ -133,7 +139,7 @@ public class ThirdPersonmovement : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
         }
     }
-    // casting of ablitys
+    // casting of ablitys 
     void castFireBall()
     {
 

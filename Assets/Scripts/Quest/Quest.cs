@@ -12,13 +12,13 @@ public class Quest : MonoBehaviour
     //public Item itemReward { get; set;}
     public bool Completed { get; set; }
    
-    
+    // checks if complete
     public void CheckGoals()
     {
         Completed = Goals.All(g => g.Completed);
         
     }
-
+    // gives reward on complete
     public void Givereward()
     {
         

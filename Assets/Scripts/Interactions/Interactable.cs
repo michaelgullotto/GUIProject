@@ -12,11 +12,13 @@ public class Interactable : MonoBehaviour
 
     private void Update()
     {
+        // tells pplayer to interact with items
         if(Inputmanger.inputmanger.KeyDown("Interact"))
         {
             isInteractable();
         }
     }
+    // checks if player is close enough to interact
     public void isInteractable()
     {
         distance = (InteractbleObject.transform.position - player.transform.position).magnitude;
@@ -33,10 +35,9 @@ public class Interactable : MonoBehaviour
 
     }
 
-    
+    // place holder gets overided in other scripts
     public virtual void Interact()
     {
         Debug.Log("interact");
-
     }
 }

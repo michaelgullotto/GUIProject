@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PickUpItem : Interactable
 {
-    public override void Interact()
+    // testing purposes dosent get used now
+     public override void Interact()
     {
         Debug.Log("itempickup");
     }

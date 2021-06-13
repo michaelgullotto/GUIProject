@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Mystats : MonoBehaviour
 {
+    //welcome to varrible land
     public GameObject deathpanel;
     public GameObject player;
     public GameObject respawnpoint;
@@ -64,6 +65,7 @@ public class Mystats : MonoBehaviour
 
     private void Start()
     {
+        // plays music an tellls where we are in scene index
         music.Play();
         levelloader.Index = 2;
        
@@ -71,7 +73,7 @@ public class Mystats : MonoBehaviour
     }
     private void Update()
     {
-       
+       // calcualtions for vaibles
         maxhealth = strength * 20;
         healthregen = strength ;
         maxMana = intelligence * 20;
@@ -81,6 +83,7 @@ public class Mystats : MonoBehaviour
         stamina = Dextrerity * 3;
         staminaregen = Dextrerity / 2;
 
+        // makes sure stats cant go above thier max
         if(currentMana > maxMana)
         {
             currentMana = maxMana;
@@ -95,12 +98,13 @@ public class Mystats : MonoBehaviour
         {
             currentstamina = stamina;
         }
+        //ohhh you dead
         if (currenthealth <= 0)
         {
             Dead();
         }
 
-
+        // more varible calluations
         strength = poolstrength + basestrength + 5;
         Dextrerity = poolDextrerity + baseDextrerity + 5;
         constitution = poolconstitution + baseconstitution + 5;
@@ -108,7 +112,7 @@ public class Mystats : MonoBehaviour
         intelligence = poolintelligence + baseintelligence + 5;
         charisma = poolcharisma + basecharisma + 5;
     }
-
+    // sets class and race
     public void SetOrk()
     {
         race = "Ork";
@@ -152,7 +156,7 @@ public class Mystats : MonoBehaviour
         mage.Play();
     }
 
-
+    // alows add/minus of stats from stat pull without allowing player to remove more then had to start with
     public void AddStrength()
     {
         if (statpool > 0)
@@ -315,6 +319,7 @@ public class Mystats : MonoBehaviour
             nostats.Play();
         }
     }
+ // saves the game
     public void SaveGame()
     {
         
@@ -328,7 +333,7 @@ public class Mystats : MonoBehaviour
 
     }
 
-
+    // creates save file
     private Save CreateSaveGameObjects()
     {
         Save save = new Save();
@@ -360,7 +365,7 @@ public class Mystats : MonoBehaviour
 
         return save;
     }
-
+    // loads the game from savefiel
     public void loadGame()
     {
        
@@ -414,7 +419,7 @@ public class Mystats : MonoBehaviour
 
 
         }
-
+        // sets class again sicne we only save the class name
         if (race != null)
         {
             if (race == "Ork")
@@ -438,6 +443,7 @@ public class Mystats : MonoBehaviour
             }
 
         }
+         // makes sure that player stats set up before game starts so the player dosent laod in with 0 hp and insta die
         maxhealth = strength * 20;
         healthregen = strength;
         maxMana = intelligence * 20;

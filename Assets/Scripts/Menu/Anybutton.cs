@@ -9,7 +9,7 @@ public class Anybutton : MonoBehaviour
     public GameObject press;
     public GameObject mainMenu;
 
-    // Update is called once per frame
+    //press and button to load menu
     void Update()
     {
 

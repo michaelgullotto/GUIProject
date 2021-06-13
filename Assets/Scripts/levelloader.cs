@@ -10,7 +10,7 @@ public class levelloader : MonoBehaviour
     public Text progresstxt;
     public static int Index ;
 
-
+    // tells to call load scence method and what index currently in
     private void Start()
     {
         AsyncLoad(Index);
@@ -19,7 +19,7 @@ public class levelloader : MonoBehaviour
 
 
 
-
+    // laods next scence and keeps track of scene index
     public void AsyncLoad(int sceneIndex)
     {
         Index++;
@@ -28,10 +28,10 @@ public class levelloader : MonoBehaviour
 
     
     }
-
+    // displays progress to loading next scene
     IEnumerator loadayschronsly (int sceneIndex)
     {
-        //sceneIndex = Index;
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
             while(!operation.isDone)

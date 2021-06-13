@@ -12,6 +12,8 @@ public class Questgiver : Npc
     [SerializeField]
     private string questType;
     private Quest Quest { get; set; }
+
+    // assigns quest or checks if quest is complete if assigned already when interacted with
     public override void Interact()
     {
         base.Interact();
@@ -25,16 +27,17 @@ public class Questgiver : Npc
         }
        
     }
-
+    // asigns quest
     void AssignQuest()
     {
         AssignedQuest = true;
         Quest = (Quest)quests.AddComponent(System.Type.GetType(questType));
 
     }
-
+    // quest competions check
     void CheckQuest()
     {
+        // if compelete gives your reward
         if (Quest.Completed)
         {
             Quest.Givereward();
@@ -43,6 +46,7 @@ public class Questgiver : Npc
 
             DialogueSystem.instance.AddNewDialogue(new string[] { "although he is strange his song is beautiful" , "You have completed the quest " }, name);
         }
+        // if not complete gives you a smack
         else if(!Quest.Completed)
         {
             DialogueSystem.instance.AddNewDialogue(new string[] { "YOU HAVENT TALKED TO RICK" }, name);

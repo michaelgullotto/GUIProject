@@ -9,6 +9,7 @@ public class Inputmanger : MonoBehaviour
 
     KeyCode pressed;
 
+    // makes sure there is only one inputmanger
     private void Awake()
     {
         if (inputmanger == null)
@@ -21,7 +22,7 @@ public class Inputmanger : MonoBehaviour
         }
         DontDestroyOnLoad(this);
     }
-
+    // check what key is pressed and if it matchs an input
     public bool KeyDown (string key)
     {
 
@@ -64,7 +65,7 @@ public class Inputmanger : MonoBehaviour
     }
 
 
-
+    // anderws code helping with rebinding
     private void OnGUI()
     {
         if (Event.current.isKey && Event.current.type == EventType.KeyDown)

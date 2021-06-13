@@ -11,6 +11,7 @@ public class InventoryController : MonoBehaviour
     public List<Item> playerItems = new List<Item>();
     public InventoryUIDetails inventoryDetailsPanel;
 
+    // makes sure there is only 1 inventory controller
     public void Awake()
     {
         inventoryDetailsPanel = GetComponent<InventoryUIDetails>();
@@ -23,19 +24,13 @@ public class InventoryController : MonoBehaviour
        
 
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            giveItem("Axe");
-            giveItem("Apple");
-        }
-    }
+    //sets up details display for item selected
     public void setItemDetails(Item item, Button button)
     {
         
         inventoryDetailsPanel.SetItem(item, button);
     }
+    // works out what item is being added to inventory 
     public void giveItem(string itemslug)
 
     {
@@ -43,11 +38,13 @@ public class InventoryController : MonoBehaviour
         playerItems.Add(item);
         UIEventHandeler.ItemAddedToInventory(item);
     }
+    // equips the item
      public void EquipItem(Item  itemToEquip)
     {
         weaponcontroller.EquipSlot1(itemToEquip);
 
     }
+    // future proofing for consumables will consume item
     public void ConsumeItem(Item itemtoconsume)
     {
         //consumecontroller.ConsumeItem(itemtoconsume);

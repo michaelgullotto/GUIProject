@@ -1,0 +1,1 @@
+// ALL scripts in this folder just tell TMProS to display varribles i have not comented them since there is so many instead this is the coment for all of them

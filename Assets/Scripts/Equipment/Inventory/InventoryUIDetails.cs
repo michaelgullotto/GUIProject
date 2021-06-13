@@ -7,6 +7,7 @@ public class InventoryUIDetails : MonoBehaviour
     Item item;
     Button SelectedItemButton, itemInteractButton;
     Text itemNameText, itemDescriptionText, itemInteractButtonText;
+    // grabs components we need for this script to work so we dont have to do in inspector 
     private void Start()
     {
         itemNameText = transform.Find("Item_Name").GetComponent<Text>();
@@ -14,6 +15,7 @@ public class InventoryUIDetails : MonoBehaviour
         itemInteractButton = transform.Find("Interact_Button").GetComponent<Button>();
         itemInteractButtonText = itemInteractButton.transform.Find("Text").GetComponent<Text>();
     }
+    // works out whatn item is selected in inventory
     public void SetItem (Item item,Button button)
     {
         itemInteractButton.onClick.RemoveAllListeners();
@@ -24,6 +26,7 @@ public class InventoryUIDetails : MonoBehaviour
         itemInteractButtonText.text = item.actionName;
         itemInteractButton.onClick.AddListener(OnItemInteract);
     }
+    // lets you equip or consume item based on it item type
     public void OnItemInteract()
     {
         if (item.itemType == Item.ItemTypes.Consumable)

@@ -19,7 +19,7 @@ public class Setingsmenu : MonoBehaviour
     void Start()
     {
     
-       
+       // grabs reslotuions options
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -40,7 +40,7 @@ public class Setingsmenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionsIndex;
         resolutionDropdown.RefreshShownValue();
-
+        // loads from player prefs
         resolutionIndex = PlayerPrefs.GetInt("ResoSave");
         SetResolution();
         resolutionDropdown.value = resolutionIndex;
@@ -62,7 +62,7 @@ public class Setingsmenu : MonoBehaviour
         qualityDropdown.value = qualityIndex;
 
     }
-    // makes above resoltions actully set resolution
+    //  sets resolution all functions from here on and saved to player prefs on change
 
     public void SetResolution()
     {
@@ -74,7 +74,7 @@ public class Setingsmenu : MonoBehaviour
     // contols volume from main mixer
     public AudioMixer audioMixer;
 
-    
+    // 3* volumes controlers
     public void SetVolmue(float volume)
     {
         audioMixer.SetFloat("Volume", volume);

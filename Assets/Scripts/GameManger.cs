@@ -14,16 +14,19 @@ public class GameManger : MonoBehaviour
   
     void Start()
     {
+        // loads chater on start
         mystats.loadGame();
       
+        // keeps track of where in scence index we are
         levelloader.Index = 3;
-        //Mystats loadGame()
+       
 
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
+        // starts regen coroutines for health and mana
         if (Mystats.currenthealth < Mystats.maxhealth  )
         {
            if (healthfull == false)
@@ -46,7 +49,7 @@ public class GameManger : MonoBehaviour
     
 
     }
-
+    // coroutines fr health and mana regen
     private IEnumerator healthregen()
     {
     

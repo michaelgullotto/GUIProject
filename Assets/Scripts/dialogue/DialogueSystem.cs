@@ -29,9 +29,10 @@ public class DialogueSystem : MonoBehaviour
             instance = this;
     }
 
-    // Update is called once per frame
+    
    public void AddNewDialogue(string[] lines, string npcname)
     {
+        // laods in dialougue and npc name
         dialogueIndex = 0;
         dialogueLines = new List<string>(lines.Length);
         dialogueLines.AddRange(lines);
@@ -42,14 +43,14 @@ public class DialogueSystem : MonoBehaviour
         
 
     }
-
+    // displays the dialogue
     public void CreateDialogue()
     {
         dialogueText.text = dialogueLines[dialogueIndex];
         nameText.text = npcname;
         dialoguepannel.SetActive(true);
     }
-
+    // lets you go to next line and closes if there is no more lines
     public void ContinueDialogue()
     {
         if (dialogueIndex < dialogueLines.Count -1)

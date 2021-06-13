@@ -8,6 +8,7 @@ public class TalkGoal : Goal
     
     // Start is called before the first frame update
 
+    // grabs all the required varribles for the quest type
     public TalkGoal(Quest quest,int npcID,string description, bool completed, int currentAmount , int requiredAmount )
     {
         this.Quest = quest;
@@ -17,14 +18,14 @@ public class TalkGoal : Goal
         this.CurrentAmount = currentAmount;
         this.RequiredAmount = requiredAmount;
     }
-
+    // calls the corect noc on interact event
     public override void Init()
     {
         base.Init();
        // CorrectNpc();
     }
 
-
+    // adds to goal when condition is met
     void CorrectNpc(rick npc)
     {
         if (npc.ID == this.NpcID)
