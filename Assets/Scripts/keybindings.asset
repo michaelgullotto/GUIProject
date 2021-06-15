@@ -18,3 +18,4 @@ MonoBehaviour:
   inventory: 105
   classablity: 49
   raceablity: 50
+  crouch: 306

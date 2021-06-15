@@ -62,6 +62,7 @@ public class Mystats : MonoBehaviour
     static public string playerclass;
     static public string classAblity;
     static public string classAblityDes;
+    public GameObject damagepanel;
 
     private void Start()
     {
@@ -464,6 +465,7 @@ public class Mystats : MonoBehaviour
         Time.timeScale = 0;
         music.Stop();
         death.Play();
+        damagepanel.SetActive(false);
         deathpanel.SetActive(true);
     }
 

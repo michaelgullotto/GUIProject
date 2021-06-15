@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ThirdPersonmovement : MonoBehaviour
 {
     public CharacterController controller;
@@ -14,8 +15,13 @@ public class ThirdPersonmovement : MonoBehaviour
     public int manacost = 20;
     private Rigidbody rb;
     public float jumpForce = 15f;
+    public float damagecheck;
+    public bool crouching = false;
+    public GameObject damgePanel;
+    public AudioSource ouch;
     private void Start()
     {
+        damagecheck = Mystats.currenthealth;
         rb = GetComponent<Rigidbody>();
     }
     private Vector3 InputVector;
@@ -30,16 +36,45 @@ public class ThirdPersonmovement : MonoBehaviour
         speed = Mystats.Movespeed * sprintspeed / 6;
         if (sprint == true)
         {
-            sprintspeed = 2;
+            sprintspeed = 4;
 
         }
-        if (sprint == false)
+        else if (sprint == false)
         {
-            sprintspeed = 1;
-
+            if (crouching == false)
+            {
+                sprintspeed = 2;
+            }
+            else if (crouching == true)
+            {
+                sprintspeed = 1;
+            }
         }
-
-
+        
+        // checks if damage has been taken and calls courtine if has
+        if (damagecheck > Mystats.currenthealth)
+        {
+            ouch.Play();
+            StartCoroutine(damageTaken());
+        }
+        if (damagecheck < Mystats.currenthealth)
+        {
+            damagecheck = Mystats.currenthealth;
+        }
+        // toggles on and off crouching
+        if (Inputmanger.inputmanger.KeyDown("Crouch"))
+        {
+            if (crouching == false)
+            {
+                sprint = false;
+                StartCoroutine(staminaregen());
+                crouching = true;
+            }
+            else if (crouching == true)
+            {
+                crouching = false;
+            }
+        }
 
         // tells player to jump
         if (Inputmanger.inputmanger.KeyDown("Jump"))
@@ -84,28 +119,31 @@ public class ThirdPersonmovement : MonoBehaviour
             }
         }
 
-     
 
-        // stops sprtinging if run out of stamina
-        if (Mystats.currentstamina > 0)
+
+        // toggles sprint on and off 
+        if (crouching == false)
         {
-            if(Inputmanger.inputmanger.KeyDown("Sprint"))
+            if (Mystats.currentstamina > 0)
             {
-                if (sprint == false)
+                if (Inputmanger.inputmanger.KeyDown("Sprint"))
                 {
-                    sprint = true;
-                    StartCoroutine(staminaLose());
+                    if (sprint == false)
+                    {
+                        sprint = true;
+                        StartCoroutine(staminaLose());
 
-                }
-                else if (sprint == true)
-                {
-                    sprint = false;
-                    StartCoroutine(staminaregen());
+                    }
+                    else if (sprint == true)
+                    {
+                        sprint = false;
+                        StartCoroutine(staminaregen());
 
+                    }
                 }
             }
         }
-        // starts stamina regen coroution
+        // stops sprtinging if run out of stamina
         if (Mystats.currentstamina <= 0)
         {
             sprint = false;
@@ -161,7 +199,7 @@ public class ThirdPersonmovement : MonoBehaviour
     {
         while (sprint == true)
         {
-            Mystats.currentstamina = Mystats.currentstamina - 1;
+            Mystats.currentstamina = Mystats.currentstamina - 3;
 
             yield return new WaitForSecondsRealtime(1);
         }
@@ -187,6 +225,22 @@ public class ThirdPersonmovement : MonoBehaviour
     {
         Mystats.currentMana = Mystats.currentMana - manacost;
     }
+    // loads up red panel untill player stops taking damage for 1 second
+    IEnumerator damageTaken()
+    {
+        while(damagecheck > Mystats.currenthealth)
+        {
+            damgePanel.SetActive(true);
+
+            damagecheck = Mystats.currenthealth;
+            
+            yield return new WaitForSeconds(1);
+        }
+        damagecheck = Mystats.currenthealth;
+        damgePanel.SetActive(false);
+    }
+
+
 
 }
 

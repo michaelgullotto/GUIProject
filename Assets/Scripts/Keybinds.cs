@@ -5,7 +5,7 @@ using UnityEngine;
 public class Keybinds : ScriptableObject
 {
 
-    public KeyCode jump, interact, sprint, inventory, classablity, raceablity;
+    public KeyCode jump, interact, sprint, inventory, classablity, raceablity ,crouch;
     // turns keycodes into strings so they can be referanced
     public KeyCode CheckKey(string key)
     {
@@ -23,6 +23,8 @@ public class Keybinds : ScriptableObject
                 return classablity;
             case "Raceablity":
                 return raceablity;
+            case "Crouch":
+                return crouch;
             default:
                 return KeyCode.None;
         }
