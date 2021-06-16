@@ -2901,7 +2901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1554356797}
   InteractbleObject: {fileID: 637592568}
-  keybinds: {fileID: 0}
+  keybinds: {fileID: 11400000, guid: c09b8d7c595ea714484b91fb8fb2b179, type: 2}
   distance: 0
 --- !u!65 &637592570
 BoxCollider:

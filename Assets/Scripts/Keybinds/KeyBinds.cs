@@ -10,7 +10,8 @@ public class KeyBinds : ScriptableObject
     public bool GetKeyDown(string key)
     {
         Bind bind = Keybinds.Find((x) => x.name == key);
-        return bind != null ? Input.GetKeyDown(bind.keycode) : false;
+        bool isPressed = bind != null ? Input.GetKeyDown(bind.keycode) : false;
+        return isPressed;
     }
     public bool GetKeyHold(string key)
     {

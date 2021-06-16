@@ -13,6 +13,8 @@ public class Interactable : MonoBehaviour
     private void Update()
     {
         // tells pplayer to interact with items
+        if (keybinds == null) return;
+
         if(keybinds.GetKeyDown("Interact"))
         {
             isInteractable();
