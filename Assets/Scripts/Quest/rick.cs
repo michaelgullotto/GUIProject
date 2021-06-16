@@ -2,14 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rick : MonoBehaviour
+public class rick : Npc
 {
+   // public TalkGoal talk;
     // this dose nothing ATM but is ment to set an id to an npc for questing purposes
-    public int ID { get; set;}
-    void Start()
+     
+    private void Start()
     {
-        ID = 1;
+        
+    }
+    public override void Interact()
+    {
+
+        //talk.Init();
+        CompleteQuests();
+        //ID = 1;
+        DialogueSystem.instance.AddNewDialogue(dialogue, name);
+        Debug.Log("npc");
     }
 
-  
+
 }

@@ -7,8 +7,7 @@ public class Questgiver : Npc
     public AudioSource arrrr;
     public bool AssignedQuest { get; set;}
     public bool Helped { get; set;}
-    [SerializeField]
-    private GameObject quests;
+
     [SerializeField]
     private string questType;
     private Quest Quest { get; set; }
@@ -38,7 +37,7 @@ public class Questgiver : Npc
     void CheckQuest()
     {
         // if compelete gives your reward
-        if (Quest.Completed)
+        if (Quest.Completed == true)
         {
             Quest.Givereward();
             Helped = true;

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ThirdPersonmovement : MonoBehaviour
 {
+    public KeyBinds keybinds;
     public CharacterController controller;
     public Transform cam;
     public bool sprint = false;
@@ -19,6 +20,9 @@ public class ThirdPersonmovement : MonoBehaviour
     public bool crouching = false;
     public GameObject damgePanel;
     public AudioSource ouch;
+
+
+    Vector3 jumpVector = Vector3.zero;
     private void Start()
     {
         damagecheck = Mystats.currenthealth;
@@ -32,6 +36,8 @@ public class ThirdPersonmovement : MonoBehaviour
     }
     void Update()   
     {
+        
+
         // sprint toggle on and off and sets speed based on movespeed
         speed = Mystats.Movespeed * sprintspeed / 6;
         if (sprint == true)
@@ -62,7 +68,7 @@ public class ThirdPersonmovement : MonoBehaviour
             damagecheck = Mystats.currenthealth;
         }
         // toggles on and off crouching
-        if (Inputmanger.inputmanger.KeyDown("Crouch"))
+        if (keybinds.GetKeyDown("Crouch"))
         {
             if (crouching == false)
             {
@@ -77,18 +83,17 @@ public class ThirdPersonmovement : MonoBehaviour
         }
 
         // tells player to jump
-        if (Inputmanger.inputmanger.KeyDown("Jump"))
-        { 
-            Vector3 velo = rb.velocity;
-            velo.y = jumpForce;
-            rb.velocity = velo;
+        if (controller.isGrounded && keybinds.GetKeyDown("Jump"))
+        {
+           
+            jumpVector.y = jumpForce;
         }
 
        
         
 
         // choses which ablity to cast
-        if (Inputmanger.inputmanger.KeyDown("Raceablity"))
+        if (keybinds.GetKeyDown("Raceablity"))
         {
             if (Mystats.currentMana > manacost)
             {
@@ -103,7 +108,7 @@ public class ThirdPersonmovement : MonoBehaviour
             }
         }
 
-        if (Inputmanger.inputmanger.KeyDown("Classablity"))
+        if (keybinds.GetKeyDown("Classablity"))
         {
             if (Mystats.currentMana > manacost)
             {
@@ -126,7 +131,7 @@ public class ThirdPersonmovement : MonoBehaviour
         {
             if (Mystats.currentstamina > 0)
             {
-                if (Inputmanger.inputmanger.KeyDown("Sprint"))
+                if (keybinds.GetKeyDown("Sprint"))
                 {
                     if (sprint == false)
                     {
@@ -160,6 +165,7 @@ public class ThirdPersonmovement : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+        Vector3 moveDir = Vector3.zero;
         if (direction.magnitude >= 0.1f)
         {
 
@@ -168,18 +174,19 @@ public class ThirdPersonmovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothvelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             // movedirection
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            
             // rb.velocity = moveDir.normalized * speed *Time.deltaTime;
         }
+        // makes player fall down and actully moves charter
+        jumpVector += Physics.gravity * Time.deltaTime *2;// * Time.deltaTime;
 
-        //// players directional movement
-        //InputVector = new Vector3(Input.GetAxis("Horizontal") * speed, rb.velocity.y, Input.GetAxis("Vertical") * speed);
-        //// rotates player to move direction
-        //transform.LookAt(transform.position + new Vector3(InputVector.x, 0, InputVector.z));
-        //// makes player actully move
-        //rb.velocity = InputVector;
-
+        controller.Move(((moveDir.normalized * speed) + jumpVector) * Time.deltaTime);
+     
+        if (controller.isGrounded == true)
+        {
+            jumpVector = Vector3.down * 2;
+        }
 
     }
     // stam usage and regenration

@@ -17,8 +17,8 @@ public class InventoryUIItem : MonoBehaviour
     // sets itrms icon and text // issue here help me please
     void SetUpItemvalues()
     {
-        //itemtext.text = item.itemName;
-        //itemIcon.sprite = Resources.Load<Sprite>("UI/Icons/Items" + item.ObjectSlug); 
+        itemtext.text = item.itemName;
+        itemIcon.sprite = Resources.Load<Sprite>("UI/Icons/Items" + item.ObjectSlug); 
     }
     // makes the items selectable in inventory
     public void onsSelectItemButton()

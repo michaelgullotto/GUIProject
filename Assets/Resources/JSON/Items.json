@@ -12,7 +12,7 @@
 
    {
     "objectSlug": "Apple",
-    "itemName": "Log Potion",
+    "itemName": "Apple",
     "description": "Nice juicy apple for eating.",
     "itemType": "Consumable",
     "actionName": "consume",

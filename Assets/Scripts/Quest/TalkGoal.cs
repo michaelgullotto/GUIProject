@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class TalkGoal : Goal
 {
     public int NpcID;
@@ -22,18 +23,18 @@ public class TalkGoal : Goal
     public override void Init()
     {
         base.Init();
-       // CorrectNpc();
+        
     }
 
     // adds to goal when condition is met
-    void CorrectNpc(rick npc)
-    {
-        if (npc.ID == this.NpcID)
-        {
-            this.CurrentAmount++;
-            Evaluate();
-        }
-    }
+    //void CorrectNpc(rick npc)
+    //{
+    //    if (npc.ID == this.NpcID)
+    //    {
+    //        this.CurrentAmount++;
+    //        Evaluate();
+    //    }
+    //}
         
 
 }

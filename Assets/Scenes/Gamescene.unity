@@ -262,17 +262,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 608011266292822267, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
   m_PrefabInstance: {fileID: 2140263272}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &52096379 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 608011266292822264, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
-  m_PrefabInstance: {fileID: 2140263272}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01be91ed994d18949876657d98524583, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &64811310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 3382238290026507790, guid: abd2e5b76f882fc46ba63f05db544636, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 52096379}
+      objectReference: {fileID: 0}
     - target: {fileID: 3382238290026507790, guid: abd2e5b76f882fc46ba63f05db544636, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1011,7 +1000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297405937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 6.2799997, z: -26.05}
+  m_LocalPosition: {x: 0.38, y: 10.67, z: -26.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1854191018}
@@ -2912,7 +2901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1554356797}
   InteractbleObject: {fileID: 637592568}
-  keybinds: {fileID: 11400000, guid: c251ecba59f33714ab88d2dc6366b4a4, type: 2}
+  keybinds: {fileID: 0}
   distance: 0
 --- !u!65 &637592570
 BoxCollider:
@@ -4069,7 +4058,7 @@ PrefabInstance:
     - target: {fileID: 8734320383828186429, guid: 9934a900e457a6949a7c2b877ad18c26, type: 3}
       propertyPath: keybinds
       value: 
-      objectReference: {fileID: 11400000, guid: c251ecba59f33714ab88d2dc6366b4a4, type: 2}
+      objectReference: {fileID: 11400000, guid: c09b8d7c595ea714484b91fb8fb2b179, type: 2}
     - target: {fileID: 8734320383828186429, guid: 9934a900e457a6949a7c2b877ad18c26, type: 3}
       propertyPath: InteractbleObject
       value: 
@@ -4221,7 +4210,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 849620127}
-  - component: {fileID: 849620126}
   - component: {fileID: 849620128}
   m_Layer: 0
   m_Name: Rick Astley
@@ -4230,35 +4218,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &849620126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849620125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594570029fd294c42a57e33c0c255089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1554356797}
-  InteractbleObject: {fileID: 849620125}
-  keybinds: {fileID: 11400000, guid: c251ecba59f33714ab88d2dc6366b4a4, type: 2}
-  distance: 0
-  dialogue:
-  - We're no strangers to love
-  - you know the rules and so do I
-  - A full commitment's what I'm thinking of You
-  - wouldn't get this from any other guy
-  - I just want to tell you how I'm feeling Gotta make you understand
-  - Never gonna give you up
-  - never gonna let you down
-  - Never gonna run around and desert you
-  - Never gonna make you cry
-  - never gonna say goodbye
-  - Never gonna tell a lie and hurt you
-  name: Rick Astley
 --- !u!4 &849620127
 Transform:
   m_ObjectHideFlags: 0
@@ -4287,6 +4246,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ac0171fe534744d8c5659d39ed5d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1554356797}
+  InteractbleObject: {fileID: 849620125}
+  keybinds: {fileID: 11400000, guid: c09b8d7c595ea714484b91fb8fb2b179, type: 2}
+  distance: 0
+  dialogue:
+  - We're no strangers to love
+  - you know the rules and so do I
+  - A full commitment's what I'm thinking of You
+  - wouldn't get this from any other guy
+  - I just want to tell you how I'm feeling Gotta make you understand
+  - Never gonna give you up
+  - never gonna let you down
+  - Never gonna run around and desert you
+  - Never gonna make you cry
+  - never gonna say goodbye
+  - Never gonna tell a lie and hurt you
+  ID: 0
+  name: Rick Astley
+  giveQuest: {fileID: 0}
+  completeQuest: THE MISSION
+  quests: {fileID: 814185793}
 --- !u!1 &856640338
 GameObject:
   m_ObjectHideFlags: 0
@@ -5317,8 +5297,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.17121497, y: 0, z: 0, w: 0.9852337}
-  m_LocalPosition: {x: 0.38, y: 6.2799997, z: -26.05}
+  m_LocalRotation: {x: 0.17121495, y: 0, z: 0, w: 0.9852337}
+  m_LocalPosition: {x: 0.38, y: 10.67, z: -26.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5612,7 +5592,7 @@ PrefabInstance:
     - target: {fileID: -2364566288086900659, guid: e742806ceb7b5cd4f99976cd55a3e9a3, type: 3}
       propertyPath: keybinds
       value: 
-      objectReference: {fileID: 11400000, guid: c251ecba59f33714ab88d2dc6366b4a4, type: 2}
+      objectReference: {fileID: 11400000, guid: c09b8d7c595ea714484b91fb8fb2b179, type: 2}
     - target: {fileID: -2364566288086900659, guid: e742806ceb7b5cd4f99976cd55a3e9a3, type: 3}
       propertyPath: InteractbleObject
       value: 
@@ -5801,36 +5781,6 @@ Transform:
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_Children: []
   m_Father: {fileID: 294846730}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1199180725
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1199180726}
-  m_Layer: 0
-  m_Name: Interact
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1199180726
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199180725}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -982.7795, y: -568.1159, z: -853.60974}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1463578013}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1206031116
@@ -6421,7 +6371,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246871744}
-  m_LocalRotation: {x: 0.17121494, y: 1e-45, z: -0, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121494, y: -0, z: -0, w: 0.9852337}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6465,7 +6415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -38.672607, y: -27.446655}
+  m_AnchoredPosition: {x: -38.672607, y: -27.446533}
   m_SizeDelta: {x: -714.0027, y: -444.65576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254118020
@@ -6888,7 +6838,7 @@ Transform:
   m_Children:
   - {fileID: 690176966}
   m_Father: {fileID: 1463578013}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1364763369
 MonoBehaviour:
@@ -6929,6 +6879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf4223c89e36e45aaaa45f8018cfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keybinds: {fileID: 11400000, guid: c09b8d7c595ea714484b91fb8fb2b179, type: 2}
   InventoryPanel: {fileID: 1254118019}
   scrollViewConent: {fileID: 1289062813}
 --- !u!1 &1411425523
@@ -7629,7 +7580,6 @@ GameObject:
   - component: {fileID: 1463578014}
   - component: {fileID: 1463578015}
   - component: {fileID: 1463578016}
-  - component: {fileID: 1463578017}
   m_Layer: 0
   m_Name: gamemanger
   m_TagString: Untagged
@@ -7665,7 +7615,6 @@ Transform:
   m_LocalPosition: {x: 971.516, y: 615.3859, z: 851.5586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1199180726}
   - {fileID: 1590927185}
   - {fileID: 1718021067}
   - {fileID: 1364763368}
@@ -7779,19 +7728,6 @@ MonoBehaviour:
   indexclothes: 0
   indexarmour: 0
   characterRenderer: {fileID: 3236348134485611632}
---- !u!114 &1463578017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463578011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e85e7c824515a34e9f30182eb9f4dec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keybinds: {fileID: 11400000, guid: c251ecba59f33714ab88d2dc6366b4a4, type: 2}
 --- !u!1 &1481432625
 GameObject:
   m_ObjectHideFlags: 0
@@ -7889,7 +7825,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515187374}
-  m_LocalRotation: {x: 0.15331319, y: 0.0000000085014795, z: -0.0000000013189823, w: 0.98817766}
+  m_LocalRotation: {x: 0.15331319, y: -0.000000008501481, z: 0.0000000013189826, w: 0.98817766}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7971,7 +7907,6 @@ GameObject:
   - component: {fileID: 1554356799}
   - component: {fileID: 1554356800}
   - component: {fileID: 1554356802}
-  - component: {fileID: 1554356801}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7987,7 +7922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554356797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 2.28, z: -16.05}
+  m_LocalPosition: {x: 0.38, y: 6.67, z: -16.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5536442097288483567}
@@ -8024,6 +7959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee6835a96859f9479425a3dc8c8f5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keybinds: {fileID: 11400000, guid: c09b8d7c595ea714484b91fb8fb2b179, type: 2}
   controller: {fileID: 1554356799}
   cam: {fileID: 963194228}
   sprint: 0
@@ -8036,22 +7972,6 @@ MonoBehaviour:
   crouching: 0
   damgePanel: {fileID: 1993444186}
   ouch: {fileID: 1427000327}
---- !u!54 &1554356801
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554356797}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 2
 --- !u!65 &1554356802
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8130,7 +8050,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1463578013}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1590927186
 MonoBehaviour:
@@ -8610,7 +8530,7 @@ Transform:
   - {fileID: 729355221}
   - {fileID: 1427000326}
   m_Father: {fileID: 1463578013}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1740520575
 GameObject:
@@ -9280,7 +9200,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854191016}
-  m_LocalRotation: {x: 0.18910751, y: -1e-45, z: -0, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.0000000084479606, z: -0.0000000016269286, w: 0.9819564}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9565,7 +9485,7 @@ GameObject:
   - component: {fileID: 1916447422}
   - component: {fileID: 1916447421}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10762,7 +10682,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 608011266292822265, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
+    - {fileID: 608011266292822264, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a6be9c5a40251084d8413812cba1c3e0, type: 3}
 --- !u!1 &67088046531172489
 GameObject:
@@ -11225,15 +11147,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1554356797}
   InteractbleObject: {fileID: 1806645149187725188}
-  keybinds: {fileID: 11400000, guid: c251ecba59f33714ab88d2dc6366b4a4, type: 2}
+  keybinds: {fileID: 11400000, guid: c09b8d7c595ea714484b91fb8fb2b179, type: 2}
   distance: 0
   dialogue:
   - Greetings Friend
   - I have a Quest for you
   - Go talk to Rick by the Tree
+  ID: 0
   name: Questgiver
-  arrrr: {fileID: 729355222}
+  giveQuest: {fileID: 0}
+  completeQuest: 
   quests: {fileID: 814185793}
+  arrrr: {fileID: 729355222}
   questType: TheMission
 --- !u!4 &1822215168338088518
 Transform:

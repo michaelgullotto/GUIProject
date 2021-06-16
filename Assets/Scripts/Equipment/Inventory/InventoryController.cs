@@ -14,7 +14,7 @@ public class InventoryController : MonoBehaviour
     // makes sure there is only 1 inventory controller
     public void Awake()
     {
-        inventoryDetailsPanel = GetComponent<InventoryUIDetails>();
+        //inventoryDetailsPanel = GetComponent<InventoryUIDetails>();
 
         if (Instance != null && Instance != this)
         {

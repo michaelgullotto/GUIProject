@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    public KeyBinds keybinds;
     public RectTransform InventoryPanel;
     public RectTransform scrollViewConent;
     InventoryUIItem itemContainer { get; set;}
@@ -21,7 +22,7 @@ public class InventoryUI : MonoBehaviour
     private void Update()
     {
         // opens and closes inventoy from keydown
-        if(Inputmanger.inputmanger.KeyDown("Inventory"))
+        if(keybinds.GetKeyDown("Inventory"))
         {
             menuIsActive = !menuIsActive;
             InventoryPanel.gameObject.SetActive(menuIsActive);

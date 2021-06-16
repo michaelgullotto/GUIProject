@@ -6,14 +6,14 @@ public class Interactable : MonoBehaviour
 {
     public GameObject player;
     public GameObject InteractbleObject;
-    public Keybinds keybinds;
+    public KeyBinds keybinds;
     public float distance;
    
 
     private void Update()
     {
         // tells pplayer to interact with items
-        if(Inputmanger.inputmanger.KeyDown("Interact"))
+        if(keybinds.GetKeyDown("Interact"))
         {
             isInteractable();
         }
