@@ -66,6 +66,8 @@ public class Mystats : MonoBehaviour
 
     private void Start()
     {
+        // stops you from dying before load
+        currenthealth = maxhealth;
         // plays music an tellls where we are in scene index
         music.Play();
         levelloader.Index = 2;
@@ -100,7 +102,7 @@ public class Mystats : MonoBehaviour
             currentstamina = stamina;
         }
         //ohhh you dead
-        if (currenthealth <= 0)
+        if (currenthealth < 0)
         {
             Dead();
         }

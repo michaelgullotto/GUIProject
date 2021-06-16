@@ -24,6 +24,10 @@ public class Questgiver : Npc
         {
             CheckQuest();
         }
+        else if (Helped == true)
+        {
+            Allquestsdone();
+        }
        
     }
     // asigns quest
@@ -37,13 +41,14 @@ public class Questgiver : Npc
     void CheckQuest()
     {
         // if compelete gives your reward
-        if (Quest.Completed == true)
+        if (Quest.Completed == true && Helped == false)
         {
             Quest.Givereward();
             Helped = true;
             AssignedQuest = false;
 
             DialogueSystem.instance.AddNewDialogue(new string[] { "although he is strange his song is beautiful" , "You have completed the quest " }, name);
+
         }
         // if not complete gives you a smack
         else if(!Quest.Completed)
@@ -52,6 +57,11 @@ public class Questgiver : Npc
             arrrr.Play();
             Mystats.currenthealth = Mystats.currenthealth - 69;
         }
+
+    }
+    void Allquestsdone()
+    {
+        DialogueSystem.instance.AddNewDialogue(new string[] { "You Have Completed All My Quests" }, name);
     }
 }
 

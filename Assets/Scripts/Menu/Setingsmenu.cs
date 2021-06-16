@@ -9,6 +9,8 @@ public class Setingsmenu : MonoBehaviour
     public Dropdown resolutionDropdown;
     Resolution[] resolutions;
      int resolutionIndex;
+    public  GameObject Keybindspanel;
+    public GameObject SettingsPanel;
 
     [SerializeField] Slider volumeSlider;
     [SerializeField] Slider MusicSlider;
@@ -18,7 +20,8 @@ public class Setingsmenu : MonoBehaviour
   
     void Start()
     {
-    
+        // sets resolution
+        Screen.SetResolution(1920, 1080 ,true, 60);
        // grabs reslotuions options
         resolutions = Screen.resolutions;
 
@@ -41,9 +44,7 @@ public class Setingsmenu : MonoBehaviour
         resolutionDropdown.value = currentResolutionsIndex;
         resolutionDropdown.RefreshShownValue();
         // loads from player prefs
-        resolutionIndex = PlayerPrefs.GetInt("ResoSave");
-        SetResolution();
-        resolutionDropdown.value = resolutionIndex;
+       
 
         float volume = PlayerPrefs.GetFloat("volumesave");
         SetVolmue(volume);
@@ -57,7 +58,9 @@ public class Setingsmenu : MonoBehaviour
         SetMusic(music);
         MusicSlider.value = music;
 
-        int qualityIndex = PlayerPrefs.GetInt("Qulitysave");
+       
+        // was saveing and loading this but i want it to load in at highest
+        int qualityIndex = 5;
         SetQuality(qualityIndex);
         qualityDropdown.value = qualityIndex;
 
@@ -66,9 +69,8 @@ public class Setingsmenu : MonoBehaviour
 
     public void SetResolution()
     {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width,resolution.height, Screen.fullScreen);
-        PlayerPrefs.SetInt("ResoSave", resolutionIndex);
+        // resolutions is buggy so i just set to optimal resolution for game to look nice
+        Screen.SetResolution(1920, 1080, true, 60);
     }
 
     // contols volume from main mixer
@@ -108,4 +110,17 @@ public class Setingsmenu : MonoBehaviour
     {
         Screen.fullScreen = isFullscreen;
     }
+
+    public void KeybindsToogleOn()
+    {
+        Keybindspanel.SetActive(true);
+        SettingsPanel.SetActive(false);
+    }
+    public void KeybindsToogleOff()
+    {
+        Keybindspanel.SetActive(false);
+        SettingsPanel.SetActive(true);
+    }
+
+
 }

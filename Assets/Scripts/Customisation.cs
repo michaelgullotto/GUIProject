@@ -29,7 +29,11 @@ public class Customisation : MonoBehaviour
     [SerializeField]
     public int indexarmour = 0;
 
-
+    public void Awake()
+    {
+        // resolutions can be changed but game looks best in this one
+        Screen.SetResolution(1920, 1080, true, 60);
+    }
     // allows player to change textyres for each body part
     public void SelectSkin(int _val)
     {

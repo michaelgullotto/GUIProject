@@ -2881,11 +2881,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 3731492811998101113}
+  Keybindspanel: {fileID: 0}
+  SettingsPanel: {fileID: 0}
   volumeSlider: {fileID: 0}
   MusicSlider: {fileID: 0}
   SoundEfxSlider: {fileID: 0}
   qualityDropdown: {fileID: 0}
-  audioMixer: {fileID: 24100000, guid: f8fb34fe32ee34d4e8033090fb54c430, type: 2}
+  audioMixer: {fileID: 0}
 --- !u!1 &3731492812366350877
 GameObject:
   m_ObjectHideFlags: 0
