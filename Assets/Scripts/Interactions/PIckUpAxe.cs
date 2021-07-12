@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PIckUpAxe : Interactable
 {
-    // tells game what item is being picked up
+    
     public override void Interact()
     {
-        //GameObject.Destroy(this);
+        //player = transform.Find("Player").GetComponent<GameObject>();
+        Destroy(InteractbleObject);
         InventoryController.Instance.giveItem("Axe");
 
     }

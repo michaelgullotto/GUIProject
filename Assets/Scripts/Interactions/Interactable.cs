@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     public GameObject InteractbleObject;
     public KeyBinds keybinds;
     public float distance;
+
    
 
     private void Update()

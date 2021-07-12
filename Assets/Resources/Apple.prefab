@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db99cba421fa5254fa3209dd9bb43632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8921704387182987682, guid: 1825cb2f407fc3449b6d0d8712031fe2, type: 3}
+  InteractbleObject: {fileID: 3399126232224894860}
+  keybinds: {fileID: 11400000, guid: c09b8d7c595ea714484b91fb8fb2b179, type: 2}
+  distance: 0
 --- !u!1001 &3398634976710886360
 PrefabInstance:
   m_ObjectHideFlags: 0

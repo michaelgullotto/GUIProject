@@ -7,6 +7,8 @@ public class InventoryController : MonoBehaviour
 {
     public static InventoryController Instance { get; set;}
     public WeaponController weaponcontroller;
+    public GameObject Player;
+    public GameObject DropedItem { get; set;}
     //public Item Axe;
     public List<Item> playerItems = new List<Item>();
     public InventoryUIDetails inventoryDetailsPanel;
@@ -49,5 +51,9 @@ public class InventoryController : MonoBehaviour
     {
         //consumecontroller.ConsumeItem(itemtoconsume);
     }
-
+    public void Dropitem(Item itemToDrop)
+    {
+        DropedItem = (GameObject)Instantiate(Resources.Load<GameObject>(itemToDrop.ObjectSlug), Player.transform.position, Player.transform.rotation);
+        
+    }
 }

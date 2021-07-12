@@ -85,6 +85,7 @@ public class Mystats : MonoBehaviour
         Movespeed = 20 + Dextrerity;
         stamina = Dextrerity * 3;
         staminaregen = Dextrerity / 2;
+       
 
         // makes sure stats cant go above thier max
         if(currentMana > maxMana)
