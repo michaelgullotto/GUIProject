@@ -6,45 +6,62 @@ using UnityEngine.UI;
 public class Setingsmenu : MonoBehaviour
 {
     // controls and genrates resolotuions for resolutions dropwdown
-    public Dropdown resolutionDropdown;
-    Resolution[] resolutions;
+    
+    Resolution[] reso;
      int resolutionIndex;
     public  GameObject Keybindspanel;
     public GameObject SettingsPanel;
-
+    public int resosaved = 0;
+    public int qulitysaved = 0;
+    public int currentResoIndex;
     [SerializeField] Slider volumeSlider;
     [SerializeField] Slider MusicSlider;
     [SerializeField] Slider SoundEfxSlider;
     [SerializeField] Dropdown qualityDropdown;
-
+    public Dropdown resoDropdown;
   
     void Start()
     {
-        // sets resolution
-        Screen.SetResolution(1920, 1080 ,true, 60);
-       // grabs reslotuions options
-        resolutions = Screen.resolutions;
 
-        resolutionDropdown.ClearOptions();
+        resosaved = PlayerPrefs.GetInt("ResoHasSave");
+        qulitysaved = PlayerPrefs.GetInt("QualityHasSave");
+        // grabs reslotuions options
+         reso = Screen.resolutions;
+
+        resoDropdown.ClearOptions();
 
         List<string> options = new List<string>();
-        int currentResolutionsIndex = 0;
-        for (int i = 0; i < resolutions.Length; i++)
+        
+        for (int i = 0; i < reso.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
+            string option = reso[i].width + " x " + reso[i].height;
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height )
+            if (reso[i].width == Screen.currentResolution.width && reso[i].height == Screen.currentResolution.height )
             {
-                currentResolutionsIndex = i;
+                currentResoIndex = i;
             }
 
         }
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionsIndex;
-        resolutionDropdown.RefreshShownValue();
+        resoDropdown.AddOptions(options);
+
+
+        if (resosaved == 0)
+        {
+            resoDropdown.value = currentResoIndex;
+            SetResolution(currentResoIndex);
+
+        }
+        else
+        {
+            currentResoIndex = PlayerPrefs.GetInt("ResoSave");
+            resoDropdown.value = currentResoIndex;
+            SetResolution(currentResoIndex);
+
+        }
+        resoDropdown.RefreshShownValue();
         // loads from player prefs
-       
+
 
         float volume = PlayerPrefs.GetFloat("volumesave");
         SetVolmue(volume);
@@ -58,19 +75,26 @@ public class Setingsmenu : MonoBehaviour
         SetMusic(music);
         MusicSlider.value = music;
 
-       
-        // was saveing and loading this but i want it to load in at highest
-        int qualityIndex = 5;
-        SetQuality(qualityIndex);
-        qualityDropdown.value = qualityIndex;
+
+        // was saveing and loading this
+        if (qulitysaved != 0)
+        {
+            int qualityIndex = PlayerPrefs.GetInt("Qualitysave");
+            SetQuality(qualityIndex);
+            qualityDropdown.value = qualityIndex;
+        }
 
     }
     //  sets resolution all functions from here on and saved to player prefs on change
 
-    public void SetResolution()
+    public void SetResolution(int resolutionindex)
     {
-        // resolutions is buggy so i just set to optimal resolution for game to look nice
-        Screen.SetResolution(1920, 1080, true, 60);
+        currentResoIndex = resolutionIndex;
+        Resolution resolution = reso[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.width, Screen.fullScreen);
+        PlayerPrefs.SetInt("ResoSave", resolutionIndex);
+        resosaved = 1;
+        PlayerPrefs.SetInt("ResoHasSave", resosaved);
     }
 
     // contols volume from main mixer
@@ -104,6 +128,8 @@ public class Setingsmenu : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(qualityIndex);
         PlayerPrefs.SetInt("Qualitysave", qualityIndex);
+        qulitysaved = 1;
+        PlayerPrefs.SetInt("QualityHasSave", qulitysaved);
     }
     //controls full screen from toggle
     public void SetFullsceen (bool isFullscreen)
